@@ -1,98 +1,63 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Our Events</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- vendors -->
-        <script type="text/javascript" src="../vendors/angular.min.js"></script>
-        <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
-        <!-- animate, aria, messages and material-icons -->
-        <script src="../vendors/angular-animate.js" charset="utf-8"></script>
-        <script src="../vendors/angular-aria.js" charset="utf-8"></script>
-        <script src="../vendors/angular-messages.js" charset="utf-8"></script>
-        <script src="../vendors/angular-material-icons.js" charset="utf-8"></script>
-        <script src="../vendors/angular-material.js" charset="utf-8"></script>
 
-        <!-- route controller -->
-        <script type="text/javascript" src="/assets/scripts/clientapp.js"></script>
-        <!-- controllers -->
-        <script type="text/javascript" src="/assets/scripts/controllers/login.controller.js"></script>
-        <script type="text/javascript" src="/assets/scripts/controllers/user.controller.js"></script>
-        <script type="text/javascript" src="/assets/scripts/controllers/landing.controller.js"></script>
-        <script type="text/javascript" src="/assets/scripts/controllers/create.controller.js"></script>
-        <script type="text/javascript" src="/assets/scripts/controllers/about.controller.js"></script>
-        <script type="text/javascript" src="/assets/scripts/controllers/technologies.controller.js"></script>
+<head>
+  <title>Our Events</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- vendors -->
+  <script type="text/javascript" src="../vendors/angular.min.js"></script>
+  <script type="text/javascript" src="../vendors/angular-route.min.js"></script>
+  <!-- animate, aria, messages and material-icons -->
+  <script src="../vendors/angular-animate.js" charset="utf-8"></script>
+  <script src="../vendors/angular-aria.js" charset="utf-8"></script>
+  <script src="../vendors/angular-messages.js" charset="utf-8"></script>
+  <script src="../vendors/angular-material-icons.js" charset="utf-8"></script>
+  <script src="../vendors/angular-material.js" charset="utf-8"></script>
+  <!-- route controller -->
+  <script type="text/javascript" src="/assets/scripts/clientapp.js"></script>
+  <!-- controllers -->
+  <script type="text/javascript" src="/assets/scripts/controllers/login.controller.js"></script>
+  <script type="text/javascript" src="/assets/scripts/controllers/user.controller.js"></script>
+  <script type="text/javascript" src="/assets/scripts/controllers/landing.controller.js"></script>
+  <script type="text/javascript" src="/assets/scripts/controllers/create.controller.js"></script>
+  <script type="text/javascript" src="/assets/scripts/controllers/about.controller.js"></script>
+  <script type="text/javascript" src="/assets/scripts/controllers/technologies.controller.js"></script>
+  <!-- s.t.y.l.e style -->
+  <link rel="stylesheet" href="../scripts/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+  <!-- needed this to get the angular materials style correct -->
+  <link rel="stylesheet" href="/assets/styles/angular-material.css">
 
-        <!-- stratic -->
-        <!-- uncomment to get tab bar working -->
-        <!-- <script src="/assets/scripts/static/script.js" charset="utf-8"></script> -->
-        <!-- s.t.y.l.e style -->
-        <link rel="stylesheet" href="../scripts/styles/style.css">
-        <link rel="stylesheet" href="/assets/styles/style.css">
-        <link rel="stylesheet" href="/vendors/bootstrap.min.css">
-        <!-- needed this to get the angular materials style correct -->
-        <link rel="stylesheet" href="/assets/styles/angular-material.css">
+  <base href="/" />
+</head>
 
-        <base href="/" />
-    </head>
+<body ng-app="myApp">
+  <header ng-include="'/views/templates/header.html'"></header>
 
-    <body ng-app="myApp">
-      <header ng-include="'/views/templates/header.html'"></header>
-
-
-
-
-
-
-
-      <div ng-controller="AppCtrl as ac" ng-cloak>
-        <md-content class="md-padding">
-          <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-click="ac.goto('page1')" name="page1">
-              main
-            </md-nav-item>
-            <md-nav-item md-nav-click="ac.goto('page2')" name="page2">
-              About
-            </md-nav-item>
-            <md-nav-item md-nav-click="ac.goto('page3')" name="page3">
-              Technologies
-            </md-nav-item>
-            <!-- these require actual routing with ui-router or ng-route, so they
-            won't work in the demo
-            <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
-            <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
-            You can also add options for the <code>ui-sref-opts</code> attribute.
-            <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
-              Page Six
-            </md-nav-item>
-            -->
-          </md-nav-bar>
-          <div class="ext-content">
-            Test all the code. this will be replaced with a div ng-view.
-            <!-- `<span>{{currentNavItem}}</span>`. -->
-
-            <!-- <div ng-view>
-                        div that contains the other views
-                      </div>
-
-                      <br>
-                        <h1>Test Index</h1>
-                        <p>
-                          Test this thing out. Need to get working. Well don't need but want
-                        </p> -->
-
-          </div>
-        </md-content>
+  <!-- this is the nav bar provided my angular materials -->
+  <div ng-controller="TabCtrl as ac" ng-cloak>
+    <md-content class="md-padding">
+      <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+        <md-nav-item md-nav-click="ac.goto('page1')" name="page1">
+          main
+        </md-nav-item>
+        <md-nav-item md-nav-click="ac.goto('/about')" ng-href="/about" name="about">
+          About
+        </md-nav-item>
+        <md-nav-item md-nav-click="ac.goto('page3')" name="page3">
+          Technologies
+        </md-nav-item>
+      </md-nav-bar>
+      <div class="ext-content">
       </div>
+    </md-content>
+  </div>
+  <!-- ng-view -->
+  <main ng-view></main>
 
+</body>
 
-
-
-
-
-      <main ng-view></main>
-
-    </body>
 </html>

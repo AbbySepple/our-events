@@ -3,4 +3,8 @@ myApp.controller('AboutController', ['$http', '$location', function($http, $loca
   var vm = this;
 
   console.log('checking about.controller.js');
-}]);
+
+
+
+
+}]);//end myApp

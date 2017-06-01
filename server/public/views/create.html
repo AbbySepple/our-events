@@ -15,7 +15,7 @@
       <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
         <div layout-gt-xs="row">
           <div flex-gt-xs>
-            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" ng-model="cc.create.date"></md-datepicker>
           </div>
         </div>
       </md-content>
@@ -26,6 +26,7 @@
       <input type="text" placeholder="07:36pm" ng-model="cc.create.time" />
     </div>
 <!-- location input -->
+<!-- will need to convert ' ' to + to work with google maps -->
     <div>
       <label for="location">Location:</label>
       <input type="text" placeholder="123 Smith LN N city MN 55448" ng-model="cc.create.location" />
@@ -36,6 +37,6 @@
 <button class="btn btn-default" ng-click="" type="button" name="create">Create</button>
 <button class="btn btn-default" ng-click="" type="button" name="delete">Delete</button>
 
-ddd
+
 
 </div>
