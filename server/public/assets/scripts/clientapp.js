@@ -10,11 +10,11 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/home.html',
       controller: "LoginController as lc"
     })
-    .when('/register', {
+    .when('/register1', {
       templateUrl: '/views/register.html',
       controller: "LoginController as lc"
     })
-    .when('/user', {
+    .when('/user1', {
       templateUrl: '/views/user.html',
       controller: "UserController as uc"
     })
@@ -26,7 +26,7 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/landing.html',
       controller: "LandingConController as lcc"
     })
-    .when('/about',{
+    .when('/about1',{
       templateUrl: '/views/about.html',
       controller: "AboutController as ac"
     })
@@ -60,3 +60,6 @@ myApp.controller('AppCtrl', function() {
   this.isOpen = false;
   console.log('inside myapp.controller');
 });
+
+
+// this is for client functions
