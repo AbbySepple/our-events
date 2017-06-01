@@ -1,0 +1,41 @@
+<div class="contianer">
+
+  <p>this is the create page. where users will be able to input information.</p>
+
+
+
+  <form ng-submit="cc.addItem()">
+<!-- event name input -->
+    <div>
+      <label for="name">Event name:</label>
+      <input type="text" placeholder="Girls Night Out" ng-model="cc.create.name" />
+    </div>
+<!-- event date/datepicker -->
+    <div>
+      <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
+        <div layout-gt-xs="row">
+          <div flex-gt-xs>
+            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date"></md-datepicker>
+          </div>
+        </div>
+      </md-content>
+    </div>
+<!-- time input -->
+    <div>
+      <label for="time">Time:</label>
+      <input type="text" placeholder="07:36pm" ng-model="cc.create.time" />
+    </div>
+<!-- location input -->
+    <div>
+      <label for="location">Location:</label>
+      <input type="text" placeholder="123 Smith LN N city MN 55448" ng-model="cc.create.location" />
+    </div>
+  </form>
+
+
+<button class="btn btn-default" ng-click="" type="button" name="create">Create</button>
+<button class="btn btn-default" ng-click="" type="button" name="delete">Delete</button>
+
+
+
+</div>
