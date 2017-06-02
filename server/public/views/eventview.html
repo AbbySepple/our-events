@@ -1,10 +1,14 @@
-<div>
+<div ng-repeat='thing in evc.eventDetails'>
 <p>
   event full view
 </p>
 
 
-{{evc}}
+{{thing.name}}
+<br />
+{{thing.date}}
+<br />
+{{thing.time}}
 
 
 

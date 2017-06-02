@@ -14,6 +14,7 @@ var index = require('./routes/index');
 var user = require('./routes/user');
 var register = require('./routes/register');
 var Item = require('./routes/items');
+var eventv = require('./routes/eventv');
 
 
 // Body parser middleware
@@ -40,6 +41,7 @@ app.use(passport.session());
 app.use('/register', register);
 app.use('/user', user);
 app.use('/items', Item);
+app.use('/eventv', eventv);
 // app.use('/about', about);
 app.use('/*', index);
 

@@ -5,16 +5,16 @@ function($http, $routeParams, $location){
   console.log('route params: ', $routeParams);
   var vm = this;
 
-  // 
-  // vm.eventDetails = [];
-  // getEventDetails();
-  //
-  // function getEventDetails() {
-  //   $http.get('/event').then(function(response){
-  //     console.log('response: ', response.data);
-  //     vm.eventDetails = response.data;
-  //   });
-  // }
-  //
+
+  vm.eventDetails = [];
+  getEventDetails();
+
+  function getEventDetails() {
+    $http.get('/eventv/' + $routeParams.eventId).then(function(response){
+      console.log('response: ', response.data);
+      vm.eventDetails = response.data;
+    });
+  }
+
 
 }]);
