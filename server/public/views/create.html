@@ -8,14 +8,14 @@
 <!-- event name input -->
     <div>
       <label for="name">Event name:</label>
-      <input type="text" placeholder="Girls Night Out" ng-model="cc.create.name" />
+      <input class="inputbox" type="text" placeholder="Girls Night Out" ng-model="cc.create.name" />
     </div>
-<!-- event date/datepicker -->
+<!-- event date/datepicker. provided my angular material -->
     <div>
       <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
         <div layout-gt-xs="row">
           <div flex-gt-xs>
-            <md-datepicker ng-model="ctrl.myDate" md-placeholder="Enter date" ng-model="cc.create.date"></md-datepicker>
+            <md-datepicker md-placeholder="Enter date" ng-model="cc.create.date"></md-datepicker>
           </div>
         </div>
       </md-content>
@@ -23,13 +23,18 @@
 <!-- time input -->
     <div>
       <label for="time">Time:</label>
-      <input type="text" placeholder="07:36pm" ng-model="cc.create.time" />
+      <input class="inputbox" type="text" placeholder="07:36pm" ng-model="cc.create.time" />
     </div>
 <!-- location input -->
 <!-- will need to convert ' ' to + to work with google maps -->
     <div>
       <label for="location">Location:</label>
-      <input type="text" placeholder="123 Smith LN N city MN 55448" ng-model="cc.create.location" />
+      <input  class="inputbox"type="text" placeholder="123 Smith LN N city MN 55448" ng-model="cc.create.location" />
+    </div>
+<!-- description input -->
+    <div>
+      <label for="description">Description</label>
+      <input class="inputbox" type="text", placeholder="..." ng-model="cc.create.description" />
     </div>
   </form>
 

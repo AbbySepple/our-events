@@ -44,3 +44,11 @@
   background-color: #e9e9e9;
   border: solid 3px black;
 }
+
+#headerbar {
+  background-color: #96858F;
+}
+
+.inputbox {
+  border: 1px solid grey;
+}

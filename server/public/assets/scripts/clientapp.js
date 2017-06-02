@@ -3,18 +3,19 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngM
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
-  $locationProvider.html5Mode(true);
+  //need to comment out for routeParams
+  // $locationProvider.html5Mode(true);
 
   $routeProvider
     .when('/home', {
       templateUrl: '/views/home.html',
       controller: "LoginController as lc"
     })
-    .when('/register1', {
+    .when('/register', {
       templateUrl: '/views/register.html',
       controller: "LoginController as lc"
     })
-    .when('/user1', {
+    .when('/user', {
       templateUrl: '/views/user.html',
       controller: "UserController as uc"
     })
@@ -26,13 +27,17 @@ myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $l
       templateUrl: '/views/landing.html',
       controller: "LandingConController as lcc"
     })
-    .when('/about1',{
+    .when('/about',{
       templateUrl: '/views/about.html',
       controller: "AboutController as ac"
     })
     .when('/technologies', {
       templateUrl: '/views/technologies.html',
       controller: "TechnologiesController as tc"
+    })
+    .when('/eventview/:eventId', {
+      templateUrl: '/views/eventview.html',
+      controller: "EventViewController as evc"
     })
     .otherwise({
       redirectTo: 'home'

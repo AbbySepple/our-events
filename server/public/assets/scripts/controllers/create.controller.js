@@ -4,26 +4,22 @@ myApp.controller('CreateController', ['$http', '$location', function($http, $loc
 
   console.log('checking Create.controller.js');
 
-
-
-//   vm.create.name
-  // vm.create.date
-  // vm.create.time
-  // vm.create.location
-
 vm.addItem = function(){
 console.log("in add item route");
 console.log("name: ", vm.create.name);
-console.log("date: ", vm.create.date);
+console.log("date: ", typeof(vm.create.date));
 console.log("time: ", vm.create.time);
-// console.log("location: ", vm.creat.location.split(' ').join('+'));
+console.log("description: ", vm.create.description);
 
 
 var objectToSend = {
   name: vm.create.name,
   date: vm.create.date,
   time: vm.create.time,
-  location: vm.create.location.split(' ').join('+')
+  //this line takes in the string, splits the elements at the space, and re joins them with a + instead
+  //this is because good map cannot have spaces but +
+  location: vm.create.location.split(' ').join('+'),
+  description: vm.create.description
 };
 
 $http({
@@ -37,6 +33,7 @@ $http({
   vm.create.date = '';
   vm.create.time = '';
   vm.create.location = '';
+  vm.create.description = '';
 
   vm.getItem();
 });

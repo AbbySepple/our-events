@@ -5,9 +5,10 @@ var Schema = mongoose.Schema;
 // Mongoose Schema
 var ItemSchema = new Schema({
     name: String,
-    date: String,
+    date: Object,
     time: String,
-    location: String
+    location: String,
+    description: String
 });
 
 module.exports = mongoose.model('Item', ItemSchema);

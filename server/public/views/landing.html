@@ -1,22 +1,10 @@
-<div>
+<div class="col-sm-8" ng-init="lcc.getItem()" >
 
   <p>this is the landing page. will show "cards" of the current events and a card to add an event in the for m a giant plus button</p>
+  <div ng-repeat="thing in lcc.itemArray">
 
-
-  <div class="col-sm-4 card">
-
-    <a ng-href="/create">Create New Event</a>
+<!-- to go to a new view with full description -->
+<a ng-href="#!eventview/{{thing._id}}"><button class="btn btn-default">{{thing.name}} <br /> {{thing.date}} <br /> {{thing.time}} </button></a>
 
   </div>
-
-  <div class="col-sm-4 card">
-    info
-  </div>
-  <div class="col-sm-4 card">
-    info
-  </div>
-  <div class="col-sm-4 card">
-    info
-  </div>
-
 </div>
