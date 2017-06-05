@@ -11,7 +11,26 @@
 {{thing.time}}
 <br />
 {{thing.description}}
+<br />
+<br />
 
+
+<!-- This is the google provided code -->
+<iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place
+  ?key=AIzaSyD5e-0z-uYq18j0rP-tucFFhgExHSSYYNA
+  &q="{{thing.location}}">" allowfullscreen>
+    >
+</iframe>
+
+
+
+
+
+<button type="button" name="button" class="btn btn-default" ng-click="evc.removeEvent(thing._id)">Delete</button>
 
 
 
