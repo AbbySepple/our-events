@@ -1,3 +1,23 @@
+<!-- this is the nav bar provided my angular materials -->
+<div ng-controller="TabCtrl as ac" ng-cloak>
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="ac.goto('page1')" name="page1">
+        main
+      </md-nav-item>
+      <md-nav-item md-nav-click="ac.goto('/about')" ng-href="/about" name="about">
+        About
+      </md-nav-item>
+      <md-nav-item md-nav-click="ac.goto('page3')" name="page3">
+        Technologies
+      </md-nav-item>
+    </md-nav-bar>
+    <div class="ext-content">
+    </div>
+  </md-content>
+</div>
+
+
 <div>
   <p>
     This is the about page

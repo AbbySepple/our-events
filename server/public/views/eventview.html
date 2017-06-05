@@ -1,38 +1,42 @@
+<!-- this is the nav bar provided my angular materials -->
+<div ng-controller="TabCtrl as ac" ng-cloak>
+  <md-content class="md-padding">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="ac.goto('page1')" name="page1">
+        main
+      </md-nav-item>
+      <md-nav-item md-nav-click="ac.goto('/about')" ng-href="/about" name="about">
+        About
+      </md-nav-item>
+      <md-nav-item md-nav-click="ac.goto('page3')" name="page3">
+        Technologies
+      </md-nav-item>
+    </md-nav-bar>
+    <div class="ext-content">
+    </div>
+  </md-content>
+</div>
+
 <div ng-repeat='thing in evc.eventDetails'>
-<p>
-  event full view
-</p>
+
+{{thing.name}}<br />{{thing.date}}<br />{{thing.time}}<br />{{thing.description}}
+<br />
+<br />
 
 
-{{thing.name}}
-<br />
-{{thing.date}}
-<br />
-{{thing.time}}
-<br />
-{{thing.description}}
-<br />
-<br />
+
+
+
+<!-- testing xeditable -->
+
+
 
 
 <!-- This is the google provided code -->
-<iframe
-  width="450"
-  height="250"
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place
-  ?key=AIzaSyD5e-0z-uYq18j0rP-tucFFhgExHSSYYNA
-  &q="{{thing.location}}">" allowfullscreen>
-    >
-</iframe>
-
-
-
-
-
+<iframe style="display:block" width="100%" height="260" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
+<br />
+<br />
 <button type="button" name="button" class="btn btn-default" ng-click="evc.removeEvent(thing._id)">Delete</button>
-
-
-
+<button type="button" name="button" class="btn btn-default">Finalize/Send SMS</button>
 
 </div>

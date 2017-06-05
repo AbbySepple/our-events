@@ -33,3 +33,14 @@ function($http, $routeParams, $location){
 
 
 }]);//end of myApp
+
+
+//Global
+
+//google map api was not working because it thought it was a dangerous outside sourse.
+//filter allows us to say "no it's okay to use this link"
+myApp.filter('googleMapUrl', function ($sce) {
+    return function(eventId) {
+      return $sce.trustAsResourceUrl('https://www.google.com/maps/embed/v1/place?key=AIzaSyD5e-0z-uYq18j0rP-tucFFhgExHSSYYNA&q=' + eventId);
+    };
+  });
