@@ -39,7 +39,7 @@ router.put('/updateEvent', function(req, res){
   console.log('router: ', req.body);
   var newEventIdUpdate = Item(req.body);
   console.log('new event id:', newEventIdUpdate );
-  Item.findByIdAndUpdate(req.body._id, {$set: {description: req.body.description}}, function(err){
+  Item.findByIdAndUpdate(req.body._id, {$set: {name: req.body.name, date: req.body.date, time: req.body.time, location: req.body.location, description: req.body.description}}, function(err){
     if (err) {
       console.log('Error updating DB', err);
       res.sendStatus(500);

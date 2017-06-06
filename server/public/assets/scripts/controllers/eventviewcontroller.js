@@ -28,11 +28,7 @@ function($http, $routeParams, $location, $){
     });
   };
 
-
-
-
-
-//update
+//this makes the details editable/xeditable/ and updates the DB
 vm.desEdit = function($scope) {
     $scope.user = {
       desc: 'Awesome user \ndescription!'
@@ -49,10 +45,6 @@ vm.updateEvent = function(thing) {
     console.log(res.data);
   });
 };
-
-
-
-
 
 }]);//end of myApp
 
