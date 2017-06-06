@@ -19,19 +19,35 @@
 
 <div ng-repeat='thing in evc.eventDetails'>
 
-{{thing.name}}<br />{{thing.date}}<br />{{thing.time}}<br />{{thing.description}}
+{{thing.name}}<br />{{thing.date}}<br />{{thing.time}}<br />
+<!-- {{thing.description}} -->
+
+<!-- xedtible testing going on -->
+
+
+<div id="TextareaCtrl">
+  <a href="#!eventview/{{thing._id}}" editable-textarea="{{thing.description}}" e-rows="7" e-cols="40">
+    <pre>{{ thing.description || 'no description' }}</pre>
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- end of testing -->
+
+
+
+
 <br />
 <br />
-
-
-
-
-
-<!-- testing xeditable -->
-
-
-
-
 <!-- This is the google provided code -->
 <iframe style="display:block" width="100%" height="260" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
 <br />

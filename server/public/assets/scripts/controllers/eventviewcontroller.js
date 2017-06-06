@@ -5,10 +5,8 @@ function($http, $routeParams, $location){
   console.log('route params: ', $routeParams);
   var vm = this;
 
-
   vm.eventDetails = [];
   getEventDetails();
-
 
 // this retrives the event details from the data base to be shown on the DOM
   function getEventDetails() {
@@ -17,7 +15,6 @@ function($http, $routeParams, $location){
       vm.eventDetails = response.data;
     });
   }
-
 // this removes an item from the database based on the ID number
   vm.removeEvent = function(id) {
     console.log('inside remove by ID!');
@@ -30,6 +27,29 @@ function($http, $routeParams, $location){
       getEventDetails();
     });
   };
+
+
+
+
+
+
+
+
+//this is for xeditable descriptiopn editor
+myApp.run(function(editableOptions){
+  editableOptions.theme = 'bs3';
+});
+
+vm.desEdit = function(vm) {
+    vm.user = {
+      desc: 'Awesome user \ndescription!'
+    };
+  };
+
+
+
+
+
 
 
 }]);//end of myApp
