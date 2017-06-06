@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngMdIcons']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngMdIcons', 'xeditable']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -65,6 +65,14 @@ myApp.controller('AppCtrl', function() {
   this.isOpen = false;
   console.log('inside myapp.controller');
 });
+
+//this is for xeditable descriptiopn editor
+myApp.run(function(editableOptions){
+  editableOptions.theme = 'bs3';
+});
+
+
+
 
 
 // this is for client functions

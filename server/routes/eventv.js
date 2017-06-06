@@ -34,5 +34,26 @@ router.delete('/:id', function(req, res) {
 });
 
 
+//updateEvent
+router.put('/updateEvent', function(req, res){
+  console.log('router: ', req.body);
+  var newEventIdUpdate = Item(req.body);
+  console.log('new event id:', newEventIdUpdate );
+  Item.findByIdAndUpdate(req.body._id, {$set: {description: req.body.description}}, function(err){
+    if (err) {
+      console.log('Error updating DB', err);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+
+});
+
+
+
+
+
+
 
 module.exports = router;

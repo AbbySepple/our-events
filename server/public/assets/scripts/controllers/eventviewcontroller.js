@@ -1,6 +1,6 @@
-myApp.controller('EventViewController', ['$http', '$routeParams', '$location',
+myApp.controller('EventViewController', ['$http', '$routeParams', '$location', '$scope',
 
-function($http, $routeParams, $location){
+function($http, $routeParams, $location, $){
   console.log('inside event controller');
   console.log('route params: ', $routeParams);
   var vm = this;
@@ -32,21 +32,23 @@ function($http, $routeParams, $location){
 
 
 
-
-
-
-//this is for xeditable descriptiopn editor
-myApp.run(function(editableOptions){
-  editableOptions.theme = 'bs3';
-});
-
-vm.desEdit = function(vm) {
-    vm.user = {
+//update
+vm.desEdit = function($scope) {
+    $scope.user = {
       desc: 'Awesome user \ndescription!'
     };
   };
 
-
+vm.updateEvent = function(thing) {
+  console.log('inside update button', thing);
+  $http({
+    method: 'PUT',
+    url: '/eventv/updateEvent',
+    data: thing
+  }).then(function(res){
+    console.log(res.data);
+  });
+};
 
 
 
