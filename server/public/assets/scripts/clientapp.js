@@ -54,7 +54,7 @@ myApp.controller('TabCtrl', function(){
 
   var vm = this;
 function AppCtrl() {
-vm.currentNavItem = 'page1';
+vm.currentNavItem = '/';
 }
 console.log('inside TabCtrl');
 });

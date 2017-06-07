@@ -3,6 +3,10 @@
   <h1 class="lead alert alert-danger" role="alert" ng-if="lc.message != ''">{{lc.message}}</h2>
   <form ng-submit="lc.registerUser()">
     <div>
+        <label for="groupname">Group Name:</label>
+        <input class="inputbox" type="text" ng-model="lc.user.groupname" />
+    </div>
+    <div>
         <label for="username">Username:</label>
         <input class="inputbox" type="text" ng-model="lc.user.username" />
     </div>

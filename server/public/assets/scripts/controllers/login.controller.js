@@ -1,46 +1,54 @@
 myApp.controller('LoginController', ['$http', '$location', function($http, $location) {
   console.log('LoginController loaded');
-    var vm = this;
+  var vm = this;
 
-    vm.user = {
-      username: '',
-      password: ''
-    };
-    vm.message = '';
 
-    vm.login = function() {
-      // console.log('here', vm.user);
-      if(vm.user.username == '' || vm.user.password == '') {
-        vm.message = "Enter your username and password!";
-      } else {
-        // console.log('sending to server...', vm.user);
-        $http.post('/', vm.user).then(function(response) {
-          if(response.data.username) {
-            // console.log('success: ', response.data);
-            // location works with SPA (ng-route)
-            console.log('redirecting to user page');
-            $location.path('/user');
-          } else {
-            console.log('failure: ', response);
-            vm.message = "Try Again You Fool!";
-          }
-        });
-      }
+  vm.user = {
+    groupname: '',
+    username: '',
+    password: '',
+    phonenumber: '',
+    address: '',
+  };
+  vm.message = '';
+
+  vm.login = function() {
+    // console.log('here', vm.user);
+    if (vm.user.username === '' || vm.user.password === '') {
+      vm.message = "Enter your username and password!";
+    } else {
+      // console.log('sending to server...', vm.user);
+      $http.post('/', vm.user).then(function(response) {
+        if (response.data.username) {
+          // console.log('success: ', response.data);
+          // location works with SPA (ng-route)
+          console.log('redirecting to user page');
+          $location.path('/user');
+        } else {
+          console.log('failure: ', response);
+          vm.message = "Try Again You Fool!";
+        }
+      });
     }
+  };
 
-    vm.registerUser = function() {
-      if(vm.user.username == '' || vm.user.password == '') {
-        vm.message = "Choose a username and password. We recomend your first name and last initial.";
-      } else {
-        // console.log('sending to server...', vm.user);
-        $http.post('/register', vm.user).then(function(response) {
+
+  vm.registerUser = function() {
+    if (vm.user.groupname === '' || vm.user.username === '' || vm.user.password === '' || vm.user.phonenumber === '' || vm.user.address === '') {
+      vm.message = "Something went wrong. Try again.";
+    } else {
+      // console.log('sending to server...', vm.user);
+
+      vm.user.address = vm.user.address.split(' ').join('+');
+
+      $http.post('/register', vm.user).then(function(response) {
           console.log('success');
           $location.path('/home');
         },
         function(response) {
           console.log('error');
-          vm.message = "Please try again."
+          vm.message = "Please try again.";
         });
-      }
     }
+  };
 }]);
