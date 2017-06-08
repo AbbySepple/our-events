@@ -1,8 +1,8 @@
 
-<div class="col-sm-8" ng-init="lcc.getItem()">
+<div ng-init="lcc.getItem()">
   <div ng-repeat="thing in lcc.itemArray">
     <!-- to go to a new view with full description -->
-    <a ng-href="eventview/{{thing._id}}"><button class="btn btn-default">{{thing.name}} <br /> {{thing.date}} <br /> {{thing.time}} </button></a>
+    <a ng-href="eventview/{{thing._id}}" class="eventmini"><button class="btn btn-default eventmini">{{thing.name}} <br /> {{thing.date}} <br /> {{thing.time}} </button></a>
 
 
 <!-- check this. for some reason when moved outside of parent div, so only one create button
@@ -14,3 +14,4 @@ is there, it breakes the code. so when "go to app" is clicked it doesn't go to l
 <br />
     <a ng-href="create"><button class="btn btn-default">Create New Event </button></a>
   <a href="#top"><button class="btn btn-default">Back to top</button></a>
+</div>

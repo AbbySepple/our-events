@@ -1,8 +1,7 @@
 
 <div ng-repeat='thing in evc.eventDetails'>
-
+  <div class="editcontainer">
 <!-- xedtibl change and update-->
-
   <a href="eventview/{{thing._id}}" editable-textarea="thing.name"e-rows="7" e-cols="20">
   {{ thing.name || 'no description' }}
   </a>
@@ -20,16 +19,16 @@
   </a>
   <br />
   <button type="button" name="button" class="btn btn-default evb updateb" ng-click="evc.updateEvent(thing)">Save Changes</button>
-<br />
-<br />
-<!-- This is the google provided code -->
-<iframe style="display:block" width="100%" height="55%" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
-<br />
-<br />
 
+  </div>
+
+<!-- This is the google provided code -->
+<iframe class="iframe" style="display:block" width="100%" height="55%" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
+
+<div class="evbuttons">
 <a ng-href="landing"><button type="button" name="button" class="btn btn-default evb" ng-click="evc.removeEvent(thing._id)">Delete</button></a>
 <button type="button" name="button" class="btn btn-default evb" ng-click="evc.sendText(thing.name)">Send Text To Group</button>
-<br />
 <a ng-href="landing"><button class="btn btn-default">View Events</button></a>
+</div>
 
 </div>
