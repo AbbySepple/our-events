@@ -4,7 +4,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngMessages', 'ngM
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // get rid of 1.6.4 #!
   //need to comment out for routeParams
-  // $locationProvider.html5Mode(true);
+  $locationProvider.html5Mode(true);
 
   $routeProvider
     .when('/home', {

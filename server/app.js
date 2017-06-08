@@ -15,6 +15,7 @@ var user = require('./routes/user');
 var register = require('./routes/register');
 var Item = require('./routes/items');
 var eventv = require('./routes/eventv');
+var twilio = require('./routes/twilioR');
 
 
 // Body parser middleware
@@ -38,6 +39,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+app.use('/twilioR', twilio);
 app.use('/register', register);
 app.use('/user', user);
 app.use('/items', Item);

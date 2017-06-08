@@ -3,8 +3,9 @@
 
 <head>
   <title>Our Events</title>
-  <!-- <base href="/" /> -->
-
+  <!-- moved this below 'title' and above meta, otherwise html5 doesn't work -->
+  <base href="/" />
+  <!-- this helps make the view more responsive -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +23,8 @@
   <!-- route controller -->
   <script type="text/javascript" src="/assets/scripts/clientapp.js"></script>
   <script type="text/javascript" src="/assets/scripts/controllers/eventviewcontroller.js"></script>
+    <!-- services -->
+    <script src="assets/scripts/services/twilio.js" charset="utf-8"></script>
   <!-- controllers -->
   <script type="text/javascript" src="/assets/scripts/controllers/login.controller.js"></script>
   <script type="text/javascript" src="/assets/scripts/controllers/user.controller.js"></script>
@@ -30,26 +33,30 @@
   <script type="text/javascript" src="/assets/scripts/controllers/about.controller.js"></script>
   <script type="text/javascript" src="/assets/scripts/controllers/technologies.controller.js"></script>
     <!-- s.t.y.l.e style -->
-  <link rel="stylesheet" href="../scripts/styles/style.css">
   <link rel="stylesheet" href="/assets/styles/style.css">
   <link rel="stylesheet" href="/vendors/bootstrap.min.css">
   <link rel="stylesheet" href="/vendors/xeditable.css">
   <!-- needed this to get the angular materials style correct -->
   <link rel="stylesheet" href="/assets/styles/angular-material.css">
   <script src="../vendors/xeditable.min.js" charset="utf-8"></script>
-
-
-  <!-- this is for xeditable -->
-
-<!--  not using html 5/route params -->
 </head>
 
 <body ng-app="myApp">
   <header ng-include="'/views/templates/header.html'"></header>
+  <br />
 
   <!-- ng-view -->
   <main ng-view></main>
 
 </body>
+
+
+<footer>
+  <a href="user">Home | </a>
+  <a href="about">About | </a>
+  <a href="technologies">Technologies | </a>
+  <address><a href="mailto:oureventsplanningapp@gmail.com">Email</a></address>
+ <small>&copy; Copyright 2017, Our Events</small>
+</footer>
 
 </html>

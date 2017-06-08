@@ -1,29 +1,8 @@
-<!-- this is the nav bar provided my angular materials -->
-<div ng-controller="TabCtrl as ac" ng-cloak>
-  <md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-click="ac.goto('page1')" name="page1">
-        main
-      </md-nav-item>
-      <md-nav-item md-nav-click="ac.goto('/about')" ng-href="/about" name="about">
-        About
-      </md-nav-item>
-      <md-nav-item md-nav-click="ac.goto('page3')" name="page3">
-        Technologies
-      </md-nav-item>
-    </md-nav-bar>
-    <div class="ext-content">
-    </div>
-  </md-content>
-</div>
-
-
-
 
 <div class="col-sm-8" ng-init="lcc.getItem()">
   <div ng-repeat="thing in lcc.itemArray">
     <!-- to go to a new view with full description -->
-    <a ng-href="#!eventview/{{thing._id}}"><button class="btn btn-default">{{thing.name}} <br /> {{thing.date}} <br /> {{thing.time}} </button></a>
+    <a ng-href="eventview/{{thing._id}}"><button class="btn btn-default">{{thing.name}} <br /> {{thing.date}} <br /> {{thing.time}} </button></a>
 
 
 <!-- check this. for some reason when moved outside of parent div, so only one create button
@@ -32,7 +11,6 @@ is there, it breakes the code. so when "go to app" is clicked it doesn't go to l
 
 
   </div>
-
-  <div class="createbutton">
-    <a ng-href="#!create"><button class="btn btn-default">Create New Event </button></a>
-  </div>
+<br />
+    <a ng-href="create"><button class="btn btn-default">Create New Event </button></a>
+  <a href="#top"><button class="btn btn-default">Back to top</button></a>

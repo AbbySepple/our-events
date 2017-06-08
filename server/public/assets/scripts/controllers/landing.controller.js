@@ -3,12 +3,12 @@ myApp.controller('LandingConController', ['$http', '$location', function($http, 
   var vm = this;
 
 
-  vm.getItem = function () {
+  vm.getItem = function() {
     $http({
       method: 'GET',
       url: '/items',
-    }).then(function (response){
-      console.log('response from server in getItem route ', response.data);
+    }).then(function(response) {
+      // console.log('response from server in getItem route ', response.data);
       vm.itemArray = response.data;
     });
   };

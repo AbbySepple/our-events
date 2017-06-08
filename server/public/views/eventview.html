@@ -1,49 +1,35 @@
-<!-- this is the nav bar provided my angular materials -->
-<div ng-controller="TabCtrl as ac" ng-cloak>
-  <md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-click="ac.goto('landing')" name="/landing">
-        main
-      </md-nav-item>
-      <md-nav-item md-nav-click="ac.goto('/about')" ng-href="/about" name="about">
-        About
-      </md-nav-item>
-    </md-nav-bar>
-    <div class="ext-content">
-    </div>
-  </md-content>
-</div>
 
 <div ng-repeat='thing in evc.eventDetails'>
 
 <!-- xedtibl change and update-->
 
-  <a href="#!eventview/{{thing._id}}" editable-textarea="thing.name"e-rows="7" e-cols="20">
+  <a href="eventview/{{thing._id}}" editable-textarea="thing.name"e-rows="7" e-cols="20">
   {{ thing.name || 'no description' }}
   </a>
   <br />
-  <a href="#!eventview/{{thing._id}}" editable-textarea="thing.time"e-rows="7" e-cols="20">
+  <a href="eventview/{{thing._id}}" editable-textarea="thing.time"e-rows="7" e-cols="20">
   {{ thing.time || 'no description' }}
   </a>
   <br />
-  <a href="#!eventview/{{thing._id}}" editable-textarea="thing.location"e-rows="7" e-cols="20">
+  <a href="eventview/{{thing._id}}" editable-textarea="thing.location"e-rows="7" e-cols="20">
   {{ thing.location || 'no description' }}
   </a>
   <br />
-  <a href="#!eventview/{{thing._id}}" editable-textarea="thing.description"e-rows="7" e-cols="20">
+  <a href="eventview/{{thing._id}}" editable-textarea="thing.description"e-rows="7" e-cols="20">
   {{ thing.description || 'no description' }}
   </a>
-
-
+  <br />
+  <button type="button" name="button" class="btn btn-default evb updateb" ng-click="evc.updateEvent(thing)">Save Changes</button>
 <br />
 <br />
 <!-- This is the google provided code -->
-<iframe style="display:block" width="100%" height="260" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
+<iframe style="display:block" width="100%" height="55%" ng-src="{{ thing.location | googleMapUrl }}" frameborder="0" allowfullscreen></iframe>
 <br />
 <br />
 
-<button type="button" name="button" class="btn btn-default evb" ng-click="evc.updateEvent(thing)">Update</button>
-<button type="button" name="button" class="btn btn-default evb" ng-click="evc.removeEvent(thing._id)">Delete</button>
-<button type="button" name="button" class="btn btn-default evb">Send SMS To Group</button>
+<a ng-href="landing"><button type="button" name="button" class="btn btn-default evb" ng-click="evc.removeEvent(thing._id)">Delete</button></a>
+<button type="button" name="button" class="btn btn-default evb" ng-click="evc.sendText(thing.name)">Send Text To Group</button>
 <br />
+<a ng-href="landing"><button class="btn btn-default">View Events</button></a>
+
 </div>

@@ -1,8 +1,8 @@
-myApp.controller('EventViewController', ['$http', '$routeParams', '$location', '$scope',
+myApp.controller('EventViewController', ['$http', '$routeParams', '$location', '$scope', 'UserService',
 
-function($http, $routeParams, $location, $){
+function($http, $routeParams, $location, $scope, UserService){
   console.log('inside event controller');
-  console.log('route params: ', $routeParams);
+  // console.log('route params: ', $routeParams);
   var vm = this;
 
   vm.eventDetails = [];
@@ -11,14 +11,14 @@ function($http, $routeParams, $location, $){
 // this retrives the event details from the data base to be shown on the DOM
   function getEventDetails() {
     $http.get('/eventv/' + $routeParams.eventId).then(function(response){
-      console.log('response: ', response.data);
+      // console.log('response: ', response.data);
       vm.eventDetails = response.data;
     });
   }
 // this removes an item from the database based on the ID number
   vm.removeEvent = function(id) {
     console.log('inside remove by ID!');
-    console.log('Event id to remove is:', id);
+    // console.log('Event id to remove is:', id);
     $http({
       method: 'DELETE',
       url: '/eventv/' + id,
@@ -36,14 +36,51 @@ vm.desEdit = function($scope) {
   };
 
 vm.updateEvent = function(thing) {
-  console.log('inside update button', thing);
+  // console.log('inside update button', thing);
   $http({
     method: 'PUT',
     url: '/eventv/updateEvent',
     data: thing
   }).then(function(res){
-    console.log(res.data);
+    // console.log(res.data);
   });
+};
+
+//twilo
+$http.get('/user').then(function(response) {
+    if(response.data.username) {
+        // user has a curret session on the server
+        vm.userName = response.data.username;
+        vm.groupname = response.data.groupname;
+        vm.userlist = [];
+        UserService.getUserList().then(function(data){
+          for(var i=0; i<data.length; i++){
+            if(data[i].groupname === vm.groupname){
+              vm.userlist.push(data[i]);
+            }
+          }
+        });
+        // console.log('User Data: ', vm.userName);
+    } else {
+        // user has no session, bounce them back to the login page
+        $location.path("/home");
+    }
+});
+vm.sendText = function(eventname){
+  console.log("inside send text click");
+  console.log('send log: ', vm.userlist);
+  var phonenumber = '';
+
+  for(var i=0; i<vm.userlist.length; i++){
+    var message = {
+      number: '',
+      content: "You have been invited to " + eventname + " event.",
+    };
+    phoneNumber = '+1' + vm.userlist[i].phonenumber;
+    message.number = phoneNumber;
+    console.log('message: ', message);
+    UserService.sendText(message);
+  }
 };
 
 }]);//end of myApp
