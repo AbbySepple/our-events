@@ -49,4 +49,28 @@ myApp.controller('CreateController', ['$http', '$location', function($http, $loc
     });
   };
 
+
+//testing
+
+vm.calendarTog = false;
+
+vm.calendarBlur = function() {
+  console.log('testing calendar blur');
+  vm.calanderTog = false;
+};
+
+vm.calendarFocus = function(){
+  console.log('testing calander focus');
+    vm.calanderTog = true;
+};
+
+vm.calendarToggle = function(){
+  vm.calendarTog = !vm.calendarTog;
+};
+
+
+
+
+
+
 }]); //end myApp

@@ -11,7 +11,7 @@
       <md-content ng-controller="AppCtrl as ctrl" layout-padding ng-cloak>
         <div layout-gt-xs="row">
           <div flex-gt-xs>
-            <md-datepicker md-placeholder="Enter date" ng-model="cc.create.date"></md-datepicker>
+            <md-datepicker ng-blur="cc.calendarBlur()" ng-click="cc.calendarToggle(s)" ng-focus="cc.calendarFocus()" md-placeholder="Enter date" ng-model="cc.create.date"></md-datepicker>
           </div>
         </div>
       </md-content>
@@ -35,11 +35,8 @@
   </form>
 
 
-<button class="btn btn-default" ng-click="cc.addItem()" type="button" name="create">Create</button>
-<a ng-href="landing"><button class="btn btn-default">Cancel</button></a>
-<br />
-<a ng-href="landing"><button class="btn btn-default">Go Back</button></a>
-
+<button ng-disabled="cc.calendarTog" class="btn btn-default" ng-click="cc.addItem()" type="button" name="create">Create</button>
+<a ng-href="landing"><button ng-disabled="cc.calendarTog" class="btn btn-default">Cancel/Go Back</button></a>
 
 
 </div>

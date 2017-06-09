@@ -18,23 +18,32 @@ function($http, $routeParams, $location, $scope, UserService){
 // this removes an item from the database based on the ID number
   vm.removeEvent = function(id) {
     console.log('inside remove by ID!');
+
+    swal({
+       title: "Are you sure?",
+       text: "You will not be able to recover this event!",
+       type: "warning",
+       showCancelButton: true,
+       confirmButtonColor: "#DD6B55",
+       confirmButtonText: "Yes, delete it!",
+       cancelButtonText: "No, cancel please!",
+       closeOnConfirm: false,
+       closeOnCancel: false },
+       function(isConfirm){   if (isConfirm) {     swal("Deleted!", "Your event has been deleted.", "success");
+
+       $http({
+         method: 'DELETE',
+         url: '/eventv/' + id,
+       }).then(function(response) {
+         //this is sweetalert
+       console.log(response);
+         getEventDetails();
+       });
+
+       } else {     swal("Cancelled", "Your event is safe :)", "error");   } });
+
     // console.log('Event id to remove is:', id);
-    $http({
-      method: 'DELETE',
-      url: '/eventv/' + id,
-    }).then(function(response) {
-      swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        closeOnConfirm: false },
-        function(){   swal("Deleted!", "Your imaginary file has been deleted.", "success"); });
-      console.log(response);
-      getEventDetails();
-    });
+
   };
 
 //this makes the details editable/xeditable/ and updates the DB
