@@ -23,6 +23,15 @@ function($http, $routeParams, $location, $scope, UserService){
       method: 'DELETE',
       url: '/eventv/' + id,
     }).then(function(response) {
+      swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover this imaginary file!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false },
+        function(){   swal("Deleted!", "Your imaginary file has been deleted.", "success"); });
       console.log(response);
       getEventDetails();
     });
@@ -95,3 +104,24 @@ myApp.filter('googleMapUrl', function ($sce) {
       return $sce.trustAsResourceUrl('https://www.google.com/maps/embed/v1/place?key=AIzaSyD5e-0z-uYq18j0rP-tucFFhgExHSSYYNA&q=' + eventId);
     };
   });
+
+
+
+
+  //sweetalert
+
+  // swal({
+  //   title: "Are you sure?",
+  //   text: "You will not be able to recover this imaginary file!",
+  //   type: "warning",
+  //   showCancelButton: true,
+  //   confirmButtonColor: "#DD6B55",
+  //   confirmButtonText: "Yes, delete it!",
+  //   closeOnConfirm: false },
+  //   function(){   swal("Deleted!", "Your imaginary file has been deleted.", "success"); });
+  //
+  // swal({
+  //   title: "Error!",
+  //   text: "Here's my error message!",
+  //   type: "error",
+  //   confirmButtonText: "Cool" });
