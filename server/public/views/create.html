@@ -1,5 +1,8 @@
 
-<div class="contianer">
+<div class="container">
+
+calendarIsOpen: {{cc.calendarIsOpen}}
+
   <form ng-submit="cc.addItem()">
 <!-- event name input -->
     <div>
@@ -35,8 +38,8 @@
   </form>
 
 
-<button ng-disabled="cc.calendarTog" class="btn btn-default" ng-click="cc.addItem()" type="button" name="create">Create</button>
-<a ng-href="landing"><button ng-disabled="cc.calendarTog" class="btn btn-default">Cancel/Go Back</button></a>
+<button ng-disabled="cc.calendarIsOpen" class="btn btn-default" ng-click="cc.addItem()" type="button" name="create">Create</button>
+<a ng-href="landing"><button ng-disabled="cc.calendarIsOpen" class="btn btn-default">Cancel/Go Back</button></a>
 
 
 </div>

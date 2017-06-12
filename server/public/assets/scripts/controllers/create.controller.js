@@ -52,16 +52,16 @@ myApp.controller('CreateController', ['$http', '$location', function($http, $loc
 
 //testing
 
-vm.calendarTog = false;
+vm.calendarIsOpen = false;
 
 vm.calendarBlur = function() {
   console.log('testing calendar blur');
-  vm.calanderTog = false;
+  vm.calendarIsOpen = false;
 };
 
 vm.calendarFocus = function(){
   console.log('testing calander focus');
-    vm.calanderTog = true;
+    vm.calendarIsOpen = true;
 };
 
 vm.calendarToggle = function(){
