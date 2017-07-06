@@ -2,3 +2,8 @@
 node_modules/
 .idea/
 *.log
+
+
+server/routes/twilioR.js
+
+server/public/assets/scripts/controllers/eventviewcontroller.js
