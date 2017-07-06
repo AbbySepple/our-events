@@ -4,6 +4,6 @@ node_modules/
 *.log
 
 
-server/routes/twilioR.js
+routes/twilioR.js
 
-server/public/assets/scripts/controllers/eventviewcontroller.js
+public/assets/scripts/controllers/eventviewcontroller.js
