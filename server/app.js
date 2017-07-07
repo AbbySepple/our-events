@@ -56,7 +56,7 @@ if(process.env.MONGODB_URI !== undefined) {
     mongoURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
-    mongoURI = 'mongodb://localhost:5017/ourevents';
+    mongoURI = 'mongodb://localhost:27017/ourevents';
 }
 
 // var mongoURI = "mongodb://localhost:27017/passport";
