@@ -4,8 +4,8 @@ var router = express.Router();
 var twilio = require('twilio');
 // var TMClient = require('textmagic-rest-client');
 
-var accountSid = 'AC316d7b05f45c5144760a38bf13ecc3ee';
-var authToken = 'af84652bc8e681d273ea08742442922f';
+var accountSid = ACCOUNT_SID;
+var authToken = AUTH_TOKEN;
 
 var client = twilio(accountSid, authToken);
 // var tmClient = new TMClient('USERNAME', 'API KEY');
